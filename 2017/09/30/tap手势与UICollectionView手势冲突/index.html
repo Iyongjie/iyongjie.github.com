@@ -16,6 +16,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/09/30/tap手势与UICollectionView手势冲突/index.html">
 <meta property="og:site_name" content="李永杰的博客">
 <meta property="og:description" content="有时候我们会在UICollectionView上添加手势，但是它与UICollectionViewDelegate的点击Cell方法冲突，怎么办呢？只需简单做个判断即可。">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-09-30T08:25:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="cell上的视图点击事件与cell点击冲突">
@@ -122,7 +123,7 @@
 				<section class="switch-part switch-part3">
 					<div id="js-friends">
 					
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/smackgg/hexo-theme-smackdown">smackdown</a>
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.candyear.com">乐糖</a>
 			        
 			        </div>
 				</section>
@@ -209,7 +210,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><strong>有时候我们会在UICollectionView上添加手势，但是它与UICollectionViewDelegate的点击Cell方法冲突，怎么办呢？只需简单做个判断即可。</strong><br><a id="more"></a></p>
-<p>首先在UICollectionView上添加一个tap手势，打个断点发现didSelectItemAtIndexPath触发不了了，我们来实现一下tap手势的delegate，即UIGestureRecognizerDelegate，在代理方法中做个判断<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">-(BOOL)gestureRecognizer:(UIGestureRecognizer )gestureRecognizer shouldReceiveTouch:(UITouch )touch &#123;   </div><div class="line">if (touch.view != self.collectionView) &#123;</div><div class="line">return NO;</div><div class="line">&#125;    </div><div class="line">return YES;   </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>首先在UICollectionView上添加一个tap手势，打个断点发现didSelectItemAtIndexPath触发不了了，我们来实现一下tap手势的delegate，即UIGestureRecognizerDelegate，在代理方法中做个判断<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">-(<span class="built_in">BOOL</span>)gestureRecognizer:(<span class="built_in">UIGestureRecognizer</span> )gestureRecognizer shouldReceiveTouch:(<span class="built_in">UITouch</span> )touch &#123;   </div><div class="line"><span class="keyword">if</span> (touch.view != <span class="keyword">self</span>.collectionView) &#123;</div><div class="line"><span class="keyword">return</span> <span class="literal">NO</span>;</div><div class="line">&#125;    </div><div class="line"><span class="keyword">return</span> <span class="literal">YES</span>;   </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>这时发现didSelectItemAtIndexPath又可以触发了,手动/开森</p>
 
       
@@ -231,21 +232,6 @@
   
 </article>
 
-
-<div class="ds-share share" data-thread-key="tap手势与UICollectionView手势冲突" data-title="cell上的视图点击事件与cell点击冲突" data-url="http://yoursite.com/2017/09/30/tap手势与UICollectionView手势冲突/"  data-images="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg" data-content="cell上的视图点击事件与cell点击冲突">
-    <div class="ds-share-inline">
-      <ul  class="ds-share-icons-16">
-      	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
-        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
-        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
-        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
-        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
-      </ul>
-      <div class="ds-share-icons-more">
-      </div>
-    </div>
- </div>
- 
 
 
 
