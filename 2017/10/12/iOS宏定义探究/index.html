@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="李永杰的博客">
 <meta property="og:description" content="对我这种菜鸟来说，系统文件中的宏定义非常陌生，特意在网上学习了一番，做了个笔记">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-12T10:29:00.000Z">
+<meta property="og:updated_time" content="2017-10-12T10:31:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS宏定义探究">
 <meta name="twitter:description" content="对我这种菜鸟来说，系统文件中的宏定义非常陌生，特意在网上学习了一番，做了个笔记">
@@ -219,6 +219,7 @@
 </code></pre><p><strong>这段代码就是如果能以&lt;&gt;方式引入头文件则全部以&lt;&gt;引入，否则以””引入，&lt;&gt;的效率是比””高的</strong></p>
 <p>##FOUNDATION_EXPORT<br><strong>FOUNDATION_EXPORT 与 ＃define 都可以用来定义常量</strong><br><strong>FOUNDATION_EXPORT定义的常量在比较字符串是否相等时可以直接用“=”，比较指针地址，比define定义的常量使用isEqualToString效率高</strong></p>
 <figure class="highlight nix"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">NSString *<span class="attr">strTmp</span> = @<span class="string">"123"</span>;    </div><div class="line">    <span class="keyword">if</span>(<span class="attr">strTmp</span> == string1) &#123;     </div><div class="line">        NSLog(@<span class="string">"strTmp内存地址:%p,string1内存地址:%p"</span>, strTmp,string1);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>待续～</p>
 
       
     </div>
