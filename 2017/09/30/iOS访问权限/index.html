@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="李永杰的博客">
 <meta property="og:description" content="iOS访问权限iOS 10以后，苹果增强了对用户隐私的保护，访问照相机、相册、麦克风、定位、通讯录等，根据需要添加，项目中使用了什么，就需要在info.plist 文件添加对应的权限。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-18T07:02:47.000Z">
+<meta property="og:updated_time" content="2017-10-18T08:56:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS访问权限">
 <meta name="twitter:description" content="iOS访问权限iOS 10以后，苹果增强了对用户隐私的保护，访问照相机、相册、麦克风、定位、通讯录等，根据需要添加，项目中使用了什么，就需要在info.plist 文件添加对应的权限。">
@@ -210,7 +210,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="iOS访问权限"><a href="#iOS访问权限" class="headerlink" title="iOS访问权限"></a>iOS访问权限</h1><p><strong>iOS 10以后，苹果增强了对用户隐私的保护，访问照相机、相册、麦克风、定位、通讯录等，根据需要添加，项目中使用了什么，就需要在info.plist 文件添加对应的权限。</strong><br><a id="more"></a></p>
-<pre><code>&lt;string&gt;App需要经过您的同意，才能访问您的媒体资料库&lt;/string&gt;
+<pre><code>&lt;key&gt;NSAppleMusicUsageDescription&lt;/key&gt;
+&lt;string&gt;App需要经过您的同意，才能访问您的媒体资料库&lt;/string&gt;
 &lt;key&gt;NSBluetoothPeripheralUsageDescription&lt;/key&gt;
 &lt;string&gt;App需要经过您的同意，才能访问您的蓝牙&lt;/string&gt;
 &lt;key&gt;NSAppleMusicUsageDescription&lt;/key&gt;
