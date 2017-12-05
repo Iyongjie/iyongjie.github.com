@@ -3,24 +3,27 @@
 <head>
   <meta charset="utf-8">
   
-  <title>iOS访问权限 | 李永杰的博客</title>
+  <title>基于Obfuscator-LLVM的混淆方案 | 李永杰的博客</title>
 
   <!-- keywords -->
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="iOS访问权限iOS 10以后，苹果增强了对用户隐私的保护，访问照相机、相册、麦克风、定位、通讯录等，根据需要添加，项目中使用了什么，就需要在info.plist 文件添加对应的权限。">
-<meta name="keywords" content="iOS,访问权限">
+  <meta name="description" content="Obfuscator-LLVM能够给编译出来的文件添加混乱的跳转流程，而且不影响程序原有执行逻辑，给逆向分析者增加绝不一般的难度。">
+<meta name="keywords" content="Obfuscator-LLVM,混淆">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS访问权限">
-<meta property="og:url" content="http://yoursite.com/2017/09/30/iOS访问权限/index.html">
+<meta property="og:title" content="基于Obfuscator-LLVM的混淆方案">
+<meta property="og:url" content="http://yoursite.com/2017/12/05/基于Obfuscator-LLVM的混淆方案/index.html">
 <meta property="og:site_name" content="李永杰的博客">
-<meta property="og:description" content="iOS访问权限iOS 10以后，苹果增强了对用户隐私的保护，访问照相机、相册、麦克风、定位、通讯录等，根据需要添加，项目中使用了什么，就需要在info.plist 文件添加对应的权限。">
+<meta property="og:description" content="Obfuscator-LLVM能够给编译出来的文件添加混乱的跳转流程，而且不影响程序原有执行逻辑，给逆向分析者增加绝不一般的难度。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-28T03:07:22.000Z">
+<meta property="og:image" content="http://yoursite.com/img/confuse1.png">
+<meta property="og:image" content="http://yoursite.com/img/confuse2.png">
+<meta property="og:updated_time" content="2017-12-05T10:34:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS访问权限">
-<meta name="twitter:description" content="iOS访问权限iOS 10以后，苹果增强了对用户隐私的保护，访问照相机、相册、麦克风、定位、通讯录等，根据需要添加，项目中使用了什么，就需要在info.plist 文件添加对应的权限。">
+<meta name="twitter:title" content="基于Obfuscator-LLVM的混淆方案">
+<meta name="twitter:description" content="Obfuscator-LLVM能够给编译出来的文件添加混乱的跳转流程，而且不影响程序原有执行逻辑，给逆向分析者增加绝不一般的难度。">
+<meta name="twitter:image" content="http://yoursite.com/img/confuse1.png">
   
     <link rel="alternative" href="/atom.xml" title="李永杰的博客" type="application/atom+xml">
   
@@ -170,11 +173,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-iOS访问权限" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-基于Obfuscator-LLVM的混淆方案" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/09/30/iOS访问权限/" class="article-date">
-  	<time datetime="2017-09-30T07:59:00.000Z" itemprop="datePublished">2017-09-30</time>
+      <a href="/2017/12/05/基于Obfuscator-LLVM的混淆方案/" class="article-date">
+  	<time datetime="2017-12-05T09:53:38.000Z" itemprop="datePublished">2017-12-05</time>
 </a>
     </div>
   
@@ -187,7 +190,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      iOS访问权限
+      基于Obfuscator-LLVM的混淆方案
       
     </h1>
   
@@ -197,7 +200,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/访问权限/">访问权限</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Obfuscator-LLVM/">Obfuscator-LLVM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/混淆/">混淆</a></li></ul>
 	</div>
 
         
@@ -209,34 +212,110 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="iOS访问权限"><a href="#iOS访问权限" class="headerlink" title="iOS访问权限"></a>iOS访问权限</h1><p><strong>iOS 10以后，苹果增强了对用户隐私的保护，访问照相机、相册、麦克风、定位、通讯录等，根据需要添加，项目中使用了什么，就需要在info.plist 文件添加对应的权限。</strong><br><a id="more"></a></p>
-<pre><code>&lt;key&gt;NSAppleMusicUsageDescription&lt;/key&gt;
-&lt;string&gt;应用需要经过您的同意，才能访问您的媒体资料库&lt;/string&gt;
-&lt;key&gt;NSBluetoothPeripheralUsageDescription&lt;/key&gt;
-&lt;string&gt;应用需要经过您的同意，才能访问您的蓝牙&lt;/string&gt;
-&lt;key&gt;NSCalendarsUsageDescription&lt;/key&gt;
-&lt;string&gt;应用需要经过您的同意，才能访问日历&lt;/string&gt;
-&lt;key&gt;NSCameraUsageDescription&lt;/key&gt;
-&lt;string&gt;应用需要经过您的同意，才能访问您的相机&lt;/string&gt;
-&lt;key&gt;NSHealthShareUsageDescription&lt;/key&gt;
-&lt;string&gt;应用需要经过您的同意，才能访问健康分享&lt;/string&gt;
-&lt;key&gt;NSHealthUpdateUsageDescription&lt;/key&gt;
-&lt;string&gt;应用需要经过您的同意，才能访问健康更新&lt;/string&gt;
-&lt;key&gt;NSLocationAlwaysUsageDescription&lt;/key&gt;
-&lt;string&gt;应用需要经过您的同意，才能始终访问到您的位置&lt;/string&gt;
-&lt;key&gt;NSLocationUsageDescription&lt;/key&gt;
-&lt;string&gt;应用需要经过您的同意，才能访问您的位置&lt;/string&gt;
-&lt;key&gt;NSLocationWhenInUseUsageDescription&lt;/key&gt;
-&lt;string&gt;应用需要经过您的同意，才能访问您的位置&lt;/string&gt;
-&lt;key&gt;NSMicrophoneUsageDescription&lt;/key&gt;
-&lt;string&gt;应用需要经过您的同意，才能访问您的麦克风&lt;/string&gt;
-&lt;key&gt;NSMotionUsageDescription&lt;/key&gt;
-&lt;string&gt;应用需要经过您的同意，才能访问运动与健身&lt;/string&gt;
-&lt;key&gt;NSPhotoLibraryUsageDescription&lt;/key&gt;
-&lt;string&gt;应用需要经过您的同意，才能访问您的相册&lt;/string&gt;
-&lt;key&gt;NSRemindersUsageDescription&lt;/key&gt;
-&lt;string&gt;应用需要经过您的同意，才能访问提醒事项&lt;/string&gt;
-</code></pre>
+        <p><strong>Obfuscator-LLVM</strong>能够给编译出来的文件添加混乱的跳转流程，而且不影响程序原有执行逻辑，给逆向分析者增加绝不一般的难度。</p>
+<a id="more"></a>
+<ol>
+<li><p>安装cmake，不然不能编译obfuscator-llvm，<a href="http://www.cmake.org/download" target="_blank" rel="external">cmake下载地址</a>，进入解压目录  </p>
+<figure class="highlight gauss"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo ./bootstrap &amp;&amp; sudo <span class="built_in">make</span> &amp;&amp; sudo <span class="built_in">make</span> install</div></pre></td></tr></table></figure>
+</li>
+<li><p>安装obfuscator-llvm<br>$ git clone -b llvm-4.0 <a href="https://github.com/obfuscator-llvm/obfuscator.git" target="_blank" rel="external">https://github.com/obfuscator-llvm/obfuscator.git</a><br>$ mkdir build<br>$ cd build<br>$ cmake -DCMAKE_BUILD_TYPE=Release ../obfuscator/<br>$ make -j7（时间有点长，出去转一圈）</p>
+</li>
+<li>集成到Xcode<br>$ cd /Applications/Xcode.app/Contents/PlugIns/Xcode3Core.ideplugin/Contents/SharedSupport/Developer/Library/Xcode/Plug-ins/<br>$ sudo cp -r Clang\ LLVM\ 1.0.xcplugin/ Obfuscator.xcplugin<br>$ cd Obfuscator.xcplugin/Contents/<br>$ sudo plutil -convert xml1 Info.plist<br>$ sudo vim Info.plist</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>默认值</th>
+<th>替换为</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>com.apple.compilers.clang</td>
+<td>com.apple.compilers.obfuscator</td>
+</tr>
+<tr>
+<td>Clang LLVM 1.0 Compiler Xcode Plug-in</td>
+<td>Obfuscator Xcode Plug-in</td>
+</tr>
+</tbody>
+</table>
+<p>继续<br>$ sudo plutil -convert binary1 Info.plist<br>$ cd Resources/<br>$ sudo mv Clang\ LLVM\ 1.0.xcspec Obfuscator.xcspec<br>$ sudo vim Obfuscator.xcspec<br>编辑  </p>
+<table>
+<thead>
+<tr>
+<th>关键字</th>
+<th>默认值</th>
+<th>替换为</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Description</td>
+<td>Apple LLVM 8.0 compiler</td>
+<td>Obfuscator 4.0 compiler</td>
+</tr>
+<tr>
+<td>ExecPath</td>
+<td>clang</td>
+<td>/path/to/obfuscator_bin/clang</td>
+</tr>
+<tr>
+<td>Identifier</td>
+<td>com.apple.compilers.llvm.clang.1_0</td>
+<td>com.apple.compilers.llvm.obfuscator.4_0</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>Apple LLVM 8.0</td>
+<td>Obfuscator 4.0</td>
+</tr>
+<tr>
+<td>Vendor</td>
+<td>Apple</td>
+<td>HEIG-VD</td>
+</tr>
+<tr>
+<td>Version</td>
+<td>7.0</td>
+<td>4.0</td>
+</tr>
+</tbody>
+</table>
+<p>继续<br>$ cd English.lproj/<br>$ sudo mv Apple\ LLVM\ 5.1.strings “Obfuscator 3.4.strings”<br>$ sudo plutil -convert xml1 Obfuscator\ 3.4.strings<br>$ sudo vim Obfuscator\ 3.4.strings  </p>
+<table>
+<thead>
+<tr>
+<th>关键字</th>
+<th>默认值</th>
+<th>替换为</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Description</td>
+<td>Apple LLVM 8.0 compiler</td>
+<td>Obfuscator 4.0 compiler</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>Apple LLVM 8.0</td>
+<td>Obfuscator 4.0</td>
+</tr>
+<tr>
+<td>Vendor</td>
+<td>Apple</td>
+<td>HEIG-VD</td>
+</tr>
+<tr>
+<td>Version</td>
+<td>7.0</td>
+<td>4.0</td>
+</tr>
+</tbody>
+</table>
+<p>go on<br>$ sudo plutil -convert binary1 Obfuscator\ 3.4.strings<br>说明：以上工具版本好视情况而定<br>重新打开Xcode,现在就可以使用了<br><img src="/img/confuse1.png" alt="选择编译器"><br><img src="/img/confuse2.png" alt="更改other c flags或者c++:"></p>
+
       
     </div>
     
@@ -245,15 +324,11 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/09/30/tap手势与UICollectionView手势冲突/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">&lt;</strong>
-      <div class="article-nav-title">
-        
-          cell上的视图点击事件与cell点击冲突
-        
-      </div>
-    </a>
   
+    <a href="/2017/11/25/关闭iOS系统更新/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">关闭iOS系统更新</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
   
 </nav>
 

@@ -3,24 +3,22 @@
 <head>
   <meta charset="utf-8">
   
-  <title>iOS访问权限 | 李永杰的博客</title>
+  <title>Archives: 2017/12 | 李永杰的博客</title>
 
   <!-- keywords -->
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="iOS访问权限iOS 10以后，苹果增强了对用户隐私的保护，访问照相机、相册、麦克风、定位、通讯录等，根据需要添加，项目中使用了什么，就需要在info.plist 文件添加对应的权限。">
-<meta name="keywords" content="iOS,访问权限">
-<meta property="og:type" content="article">
-<meta property="og:title" content="iOS访问权限">
-<meta property="og:url" content="http://yoursite.com/2017/09/30/iOS访问权限/index.html">
+  <meta name="description" content="李永杰写作的space">
+<meta property="og:type" content="website">
+<meta property="og:title" content="李永杰的博客">
+<meta property="og:url" content="http://yoursite.com/archives/2017/12/index.html">
 <meta property="og:site_name" content="李永杰的博客">
-<meta property="og:description" content="iOS访问权限iOS 10以后，苹果增强了对用户隐私的保护，访问照相机、相册、麦克风、定位、通讯录等，根据需要添加，项目中使用了什么，就需要在info.plist 文件添加对应的权限。">
+<meta property="og:description" content="李永杰写作的space">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-28T03:07:22.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS访问权限">
-<meta name="twitter:description" content="iOS访问权限iOS 10以后，苹果增强了对用户隐私的保护，访问照相机、相册、麦克风、定位、通讯录等，根据需要添加，项目中使用了什么，就需要在info.plist 文件添加对应的权限。">
+<meta name="twitter:title" content="李永杰的博客">
+<meta name="twitter:description" content="李永杰写作的space">
   
     <link rel="alternative" href="/atom.xml" title="李永杰的博客" type="application/atom+xml">
   
@@ -170,100 +168,57 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-iOS访问权限" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap">
   
-    <div class="article-meta">
-      <a href="/2017/09/30/iOS访问权限/" class="article-date">
-  	<time datetime="2017-09-30T07:59:00.000Z" itemprop="datePublished">2017-09-30</time>
-</a>
-    </div>
   
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
     
     
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      iOS访问权限
       
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/12/05/基于Obfuscator-LLVM的混淆方案/" class="archive-article-date">
+  	<time datetime="2017-12-05T09:53:38.000Z" itemprop="datePublished">Dec 5</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/12/05/基于Obfuscator-LLVM的混淆方案/">
+        基于Obfuscator-LLVM的混淆方案
+        
+      </a>
     </h1>
   
 
-      </header>
-      
-      <div class="article-info article-info-post">
-        
+        <div class="article-info info-on-left">
+          
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/访问权限/">访问权限</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Obfuscator-LLVM/">Obfuscator-LLVM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/混淆/">混淆</a></li></ul>
 	</div>
 
-        
+          
 
-        
+          
+        </div>
         <div class="clearfix"></div>
-      </div>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="iOS访问权限"><a href="#iOS访问权限" class="headerlink" title="iOS访问权限"></a>iOS访问权限</h1><p><strong>iOS 10以后，苹果增强了对用户隐私的保护，访问照相机、相册、麦克风、定位、通讯录等，根据需要添加，项目中使用了什么，就需要在info.plist 文件添加对应的权限。</strong><br><a id="more"></a></p>
-<pre><code>&lt;key&gt;NSAppleMusicUsageDescription&lt;/key&gt;
-&lt;string&gt;应用需要经过您的同意，才能访问您的媒体资料库&lt;/string&gt;
-&lt;key&gt;NSBluetoothPeripheralUsageDescription&lt;/key&gt;
-&lt;string&gt;应用需要经过您的同意，才能访问您的蓝牙&lt;/string&gt;
-&lt;key&gt;NSCalendarsUsageDescription&lt;/key&gt;
-&lt;string&gt;应用需要经过您的同意，才能访问日历&lt;/string&gt;
-&lt;key&gt;NSCameraUsageDescription&lt;/key&gt;
-&lt;string&gt;应用需要经过您的同意，才能访问您的相机&lt;/string&gt;
-&lt;key&gt;NSHealthShareUsageDescription&lt;/key&gt;
-&lt;string&gt;应用需要经过您的同意，才能访问健康分享&lt;/string&gt;
-&lt;key&gt;NSHealthUpdateUsageDescription&lt;/key&gt;
-&lt;string&gt;应用需要经过您的同意，才能访问健康更新&lt;/string&gt;
-&lt;key&gt;NSLocationAlwaysUsageDescription&lt;/key&gt;
-&lt;string&gt;应用需要经过您的同意，才能始终访问到您的位置&lt;/string&gt;
-&lt;key&gt;NSLocationUsageDescription&lt;/key&gt;
-&lt;string&gt;应用需要经过您的同意，才能访问您的位置&lt;/string&gt;
-&lt;key&gt;NSLocationWhenInUseUsageDescription&lt;/key&gt;
-&lt;string&gt;应用需要经过您的同意，才能访问您的位置&lt;/string&gt;
-&lt;key&gt;NSMicrophoneUsageDescription&lt;/key&gt;
-&lt;string&gt;应用需要经过您的同意，才能访问您的麦克风&lt;/string&gt;
-&lt;key&gt;NSMotionUsageDescription&lt;/key&gt;
-&lt;string&gt;应用需要经过您的同意，才能访问运动与健身&lt;/string&gt;
-&lt;key&gt;NSPhotoLibraryUsageDescription&lt;/key&gt;
-&lt;string&gt;应用需要经过您的同意，才能访问您的相册&lt;/string&gt;
-&lt;key&gt;NSRemindersUsageDescription&lt;/key&gt;
-&lt;string&gt;应用需要经过您的同意，才能访问提醒事项&lt;/string&gt;
-</code></pre>
-      
-    </div>
-    
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2017/09/30/tap手势与UICollectionView手势冲突/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">&lt;</strong>
-      <div class="article-nav-title">
-        
-          cell上的视图点击事件与cell点击冲突
-        
-      </div>
-    </a>
-  
-  
-</nav>
-
-  
 </article>
+  
+  
+    </div></section>
+  
 
-
-
-
-
+    
 
 </div>
       <footer id="footer">
@@ -290,8 +245,8 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false
