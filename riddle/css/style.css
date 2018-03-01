@@ -688,7 +688,7 @@ a.gray {
 	transform: rotatey(60deg);
 	-webkit-transform: rotatey(60deg);
 	-moz-transform: rotatey(60deg);
-	background: url("../images/riddle2.jpg") no-repeat;
+	background: url("../images/riddle2.png") no-repeat;
 	background-size: 100% 100%;
 }
 
@@ -696,7 +696,7 @@ a.gray {
 	transform: rotatey(120deg);
 	-webkit-transform: rotatey(120deg);
 	-moz-transform: rotatey(120deg);
-	background: url("../images/riddle3.jpg") no-repeat;
+	background: url("../images/riddle3.png") no-repeat;
 	background-size: 100% 100%;
 }
 
@@ -704,7 +704,7 @@ a.gray {
 	transform: rotatey(180deg);
 	-webkit-transform: rotatey(180deg);
 	-moz-transform: rotatey(180deg);
-	background: url("../images/riddle4.jpg") no-repeat;
+	background: url("../images/riddle4.png") no-repeat;
 	background-size: 100% 100%;
 }
 
@@ -712,7 +712,7 @@ a.gray {
 	transform: rotatey(240deg);
 	-webkit-transform: rotatey(240deg);
 	-moz-transform: rotatey(240deg);
-	background: url("../images/riddle5.jpg") no-repeat;
+	background: url("../images/riddle5.png") no-repeat;
 	background-size: 100% 100%;
 }
 
@@ -720,12 +720,12 @@ a.gray {
 	transform: rotatey(300deg);
 	-webkit-transform: rotatey(300deg);
 	-moz-transform: rotatey(300deg);
-	background: url("../images/riddle6.jpg") no-repeat;
+	background: url("../images/riddle6.png") no-repeat;
 	background-size: 100% 100%;
 }
 
 #spinner .box1 {
-	background: url("../images/riddle1.jpg") no-repeat;
+	background: url("../images/riddle1.png") no-repeat;
 	background-size: 100% 100%;
 }
 
