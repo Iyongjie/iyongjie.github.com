@@ -112,7 +112,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/ARM指令集/" style="font-size: 10px;">ARM指令集</a> <a href="/tags/Obfuscator-LLVM/" style="font-size: 10px;">Obfuscator-LLVM</a> <a href="/tags/Xcode/" style="font-size: 10px;">Xcode</a> <a href="/tags/cell/" style="font-size: 10px;">cell</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/iOS系统更新/" style="font-size: 10px;">iOS系统更新</a> <a href="/tags/宏定义/" style="font-size: 10px;">宏定义</a> <a href="/tags/混淆/" style="font-size: 10px;">混淆</a> <a href="/tags/点击事件/" style="font-size: 10px;">点击事件</a> <a href="/tags/访问权限/" style="font-size: 10px;">访问权限</a>
+						<a href="/tags/ARM指令集/" style="font-size: 10px;">ARM指令集</a> <a href="/tags/Obfuscator-LLVM/" style="font-size: 10px;">Obfuscator-LLVM</a> <a href="/tags/Xcode/" style="font-size: 10px;">Xcode</a> <a href="/tags/cell/" style="font-size: 10px;">cell</a> <a href="/tags/crash/" style="font-size: 10px;">crash</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/iOS系统更新/" style="font-size: 10px;">iOS系统更新</a> <a href="/tags/宏定义/" style="font-size: 10px;">宏定义</a> <a href="/tags/混淆/" style="font-size: 10px;">混淆</a> <a href="/tags/点击事件/" style="font-size: 10px;">点击事件</a> <a href="/tags/访问权限/" style="font-size: 10px;">访问权限</a>
 					</div>
 				</section>
 				
@@ -169,6 +169,73 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-crash分析" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/03/15/crash分析/" class="article-date">
+  	<time datetime="2018-03-15T10:06:57.000Z" itemprop="datePublished">2018-03-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/15/crash分析/">
+        crash分析
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="crash分析"><a href="#crash分析" class="headerlink" title="crash分析"></a>crash分析</h1><ol>
+<li>Window-&gt;Device-&gt;View Device Logs，找到对应crash信息，导出.crash文件到指定文件夹</li>
+<li>解压ipa，导出.app到指定文件夹</li>
+<li>Archive，右键.xcarchive文件，显示包内容,导出.dSYM文件到指定文件夹</li>
+<li>找到symbolicatecrash,运行以下命令，可能稍有等待<br>find /Applications/Xcode.app -name symbolicatecrash -type f<br>如下所示<br>/Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundation.framework/Versions/A/Resources/symbolicatecrash<br>拷贝symbolicatecrash，与.app,.dSYM,.crash放在一块  </li>
+<li>在文件夹下运行<br>./symbolicatecrash <em>.crash </em>.app.dSYM &gt; result.crash<br>可能报错Error: “DEVELOPER_DIR” is not defined at ./symbolicatecrash line 69.<br>先运行以下命令<br>export DEVELOPER_DIR=”/Applications/XCode.app/Contents/Developer”  </li>
+<li>再次运行第5步命令  </li>
+<li>result.crash查看bug所在</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/crash/">crash</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-基于Obfuscator-LLVM的混淆方案" class="article article-type-post" itemscope itemprop="blogPost">
   

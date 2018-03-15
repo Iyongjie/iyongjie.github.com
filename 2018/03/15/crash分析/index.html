@@ -3,24 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>ARM指令集 | 李永杰的博客</title>
+  <title>crash分析 | 李永杰的博客</title>
 
   <!-- keywords -->
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Xcode指令集设置 ARM架构，是一种低成本、高性能、低耗电处理器架构，目前广泛的在移动通信领域中使用。Xcode中指令集相关选项（Build Setting中）">
-<meta name="keywords" content="iOS,ARM指令集,Xcode">
+  <meta name="description" content="crash分析 Window-&amp;gt;Device-&amp;gt;View Device Logs，找到对应crash信息，导出.crash文件到指定文件夹 解压ipa，导出.app到指定文件夹 Archive，右键.xcarchive文件，显示包内容,导出.dSYM文件到指定文件夹 找到symbolicatecrash,运行以下命令，可能稍有等待find /Applications/Xcode.app">
+<meta name="keywords" content="crash">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ARM指令集">
-<meta property="og:url" content="http://yoursite.com/2017/10/12/ARM指令集/index.html">
+<meta property="og:title" content="crash分析">
+<meta property="og:url" content="http://yoursite.com/2018/03/15/crash分析/index.html">
 <meta property="og:site_name" content="李永杰的博客">
-<meta property="og:description" content="Xcode指令集设置 ARM架构，是一种低成本、高性能、低耗电处理器架构，目前广泛的在移动通信领域中使用。Xcode中指令集相关选项（Build Setting中）">
+<meta property="og:description" content="crash分析 Window-&amp;gt;Device-&amp;gt;View Device Logs，找到对应crash信息，导出.crash文件到指定文件夹 解压ipa，导出.app到指定文件夹 Archive，右键.xcarchive文件，显示包内容,导出.dSYM文件到指定文件夹 找到symbolicatecrash,运行以下命令，可能稍有等待find /Applications/Xcode.app">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-12T06:43:17.000Z">
+<meta property="og:updated_time" content="2018-03-15T10:09:04.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ARM指令集">
-<meta name="twitter:description" content="Xcode指令集设置 ARM架构，是一种低成本、高性能、低耗电处理器架构，目前广泛的在移动通信领域中使用。Xcode中指令集相关选项（Build Setting中）">
+<meta name="twitter:title" content="crash分析">
+<meta name="twitter:description" content="crash分析 Window-&amp;gt;Device-&amp;gt;View Device Logs，找到对应crash信息，导出.crash文件到指定文件夹 解压ipa，导出.app到指定文件夹 Archive，右键.xcarchive文件，显示包内容,导出.dSYM文件到指定文件夹 找到symbolicatecrash,运行以下命令，可能稍有等待find /Applications/Xcode.app">
   
     <link rel="alternative" href="/atom.xml" title="李永杰的博客" type="application/atom+xml">
   
@@ -170,11 +170,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-ARM指令集" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-crash分析" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/10/12/ARM指令集/" class="article-date">
-  	<time datetime="2017-10-12T06:23:22.000Z" itemprop="datePublished">2017-10-12</time>
+      <a href="/2018/03/15/crash分析/" class="article-date">
+  	<time datetime="2018-03-15T10:06:57.000Z" itemprop="datePublished">2018-03-15</time>
 </a>
     </div>
   
@@ -187,7 +187,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      ARM指令集
+      crash分析
       
     </h1>
   
@@ -197,7 +197,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ARM指令集/">ARM指令集</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Xcode/">Xcode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/crash/">crash</a></li></ul>
 	</div>
 
         
@@ -209,60 +209,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>Xcode指令集设置</strong></p>
-<p>ARM架构，是一种低成本、高性能、低耗电处理器架构，目前广泛的在移动通信领域中使用。<br>Xcode中指令集相关选项（Build Setting中）</p>
-<a id="more"></a>
-<ul>
-<li>Architecture：指定工程被编译成可支持哪些指令集类型，支持的指令集越多，就会编译出包含多个指令集代码的数据包，对应生成二进制包就越大，也就是ipa包会变大。</li>
-<li>Valid architectures: 即将编译的指令集。限制可能被支持的指令集的范围，也就是Xcode编译出来的二进制包类型最终从这些类型产生，而编译出哪种指令集的包，将由Architectures与Valid Architectures的交集来确定。<br>  比如，你的Valid Architectures设置的支持arm指令集版本有：armv7/armv7s/arm64，对应的Architectures设置的支持arm指令集版本有：armv7s，这时Xcode只会生成一个armv7s指令集的二进制包。 </li>
-<li>Build Active Architecture Only: 是否只编译当前适用的指令集。一般debug的时候可以选择设置为yes，release的时候要改为no，以适应不同设备。 </li>
-</ul>
-<p>##iOS的ARM处理器指令集以及支持的设备</p>
-<p>###armv6</p>
-<ul>
-<li>iPhone</li>
-<li>iPhone2</li>
-<li>iPhone3G</li>
-<li>第一代和第二代iPod Touch</li>
-</ul>
-<p>###armv7</p>
-<ul>
-<li>iPhone 3GS</li>
-<li>iPhone4</li>
-<li>iPhone4S</li>
-<li>iPad, iPad2, iPad3(The New iPad), iPad mini</li>
-<li>iPod Touch 3G, iPod Touch 4</li>
-</ul>
-<p>###armv7s</p>
-<ul>
-<li>iPhone5</li>
-<li>iPhone5C</li>
-<li>iPad4(iPad with Retina Display)</li>
-</ul>
-<p>###arm64</p>
-<ul>
-<li>iPhone5S以上</li>
-<li>iPad Air</li>
-<li>iPad mini2(iPad mini with Retina Display)</li>
-</ul>
-<p>##Mac处理器的指令集</p>
-<p>###i386</p>
-<p>iPhone4s~5模拟器</p>
-<p>###x86_64</p>
-<p>iPhone5s以上</p>
-<hr>
-<ul>
-<li>i386是针对intel通用微处理器32位处理器</li>
-<li>x86_64是针对x86架构的64位处理器</li>
-</ul>
-<hr>
-<ul>
-<li>模拟器32位处理器测试需要i386架构，</li>
-<li>模拟器64位处理器测试需要x86_64架构，</li>
-<li>真机32位处理器需要armv7,或者armv7s架构，</li>
-<li>真机64位处理器需要arm64架构。</li>
-</ul>
-<p>待续</p>
+        <h1 id="crash分析"><a href="#crash分析" class="headerlink" title="crash分析"></a>crash分析</h1><ol>
+<li>Window-&gt;Device-&gt;View Device Logs，找到对应crash信息，导出.crash文件到指定文件夹</li>
+<li>解压ipa，导出.app到指定文件夹</li>
+<li>Archive，右键.xcarchive文件，显示包内容,导出.dSYM文件到指定文件夹</li>
+<li>找到symbolicatecrash,运行以下命令，可能稍有等待<br>find /Applications/Xcode.app -name symbolicatecrash -type f<br>如下所示<br>/Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundation.framework/Versions/A/Resources/symbolicatecrash<br>拷贝symbolicatecrash，与.app,.dSYM,.crash放在一块  </li>
+<li>在文件夹下运行<br>./symbolicatecrash <em>.crash </em>.app.dSYM &gt; result.crash<br>可能报错Error: “DEVELOPER_DIR” is not defined at ./symbolicatecrash line 69.<br>先运行以下命令<br>export DEVELOPER_DIR=”/Applications/XCode.app/Contents/Developer”  </li>
+<li>再次运行第5步命令  </li>
+<li>result.crash查看bug所在</li>
+</ol>
 
       
     </div>
@@ -272,18 +227,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/10/12/iOS宏定义探究/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">&lt;</strong>
-      <div class="article-nav-title">
-        
-          iOS宏定义探究
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/09/30/tap手势与UICollectionView手势冲突/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">cell上的视图点击事件与cell点击冲突</div>
+    <a href="/2017/12/05/基于Obfuscator-LLVM的混淆方案/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">基于Obfuscator-LLVM的混淆方案</div>
       <strong class="article-nav-caption">&gt;</strong>
     </a>
   
